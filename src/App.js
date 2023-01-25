@@ -14,7 +14,16 @@ function App() {
             <>
               <div className='app-container'>
                 <Header />
-                <LinkBox />
+                <div className='linkbox-container'>
+                  <LinkBox />
+                  <LinkBox />
+                  <LinkBox />
+                  <LinkBox />
+                  <LinkBox />
+                  <LinkBox />
+                  <LinkBox />
+                  <LinkBox />
+                </div>
               </div>
 
             </>
