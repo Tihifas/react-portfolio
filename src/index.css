@@ -1,3 +1,20 @@
+:root {
+  --color-primary-500: #eeeeee;
+  --color-primary-600: #adadad;
+  --color-primary-700: #707070;
+  --color-primary-800: #383838;
+  --color-primary-900: #000000;
+}
+
+img {
+  box-shadow: 5px 5px 5px var(--color-primary-600);
+}
+
+/* TODO: move color to appcontainer instead */
+#root {
+  background-color: var(--color-primary-500);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,17 +24,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .app-container {
   margin: 30px;
-  border: 2px solid gray;
+  border: 2px solid var(--color-primary-900);
   /* min-height: 400px; */
   height: 100%;
   width: 80%;
   max-width: 1200px;
   padding: 25px;
   border-radius: 10px;
-  background-color: aliceblue;
 }
+
 
 .linkbox-container {
   display: flex;
@@ -28,14 +46,14 @@ body {
 
 .linkbox-outer {
   display: inline-block;
-  position:relative;
+  position: relative;
   height: 250px;
   /* box-sizing: border-box; */
   width: 32%;
-  border: 2px solid gray;
+  border: 2px solid var(--color-primary-900);
   border-radius: 10px;
   padding: 10px;
-  background-color: white;
+  background-color: var(--color-primary-500);
 }
 
 .linkbox-content {
@@ -53,5 +71,29 @@ body {
   position: absolute;
   top: 45px;
   right: 15px;
-  border: 1px solid blacK;
+  /* border: 1px solid black; */
+}
+
+.content-view-outer {
+  padding: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.image-row {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 15px;
+}
+
+.image-row img {
+  flex-grow: 1;
+  /* without min-width: 0 flex-grow did not work */
+  min-width: 0;
+}
+
+.image-row-nested-img {
+  width: 100%;
 }
