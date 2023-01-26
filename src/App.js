@@ -22,22 +22,28 @@ function App() {
           element={
             <>
               <div className='app-container'>
-                <Header />
-                <div className='linkbox-container'>
-                  <LinkBox link="/koala" heading={"Koala C. Martin"} img={koalaImg}/>
-                  <LinkBox link="/link1" heading={"The Supermarked"} img={guineaPigImg}/>
-                  <LinkBox link="/link1" heading={"Look Away"} img={uglyDucklingImg}/>
-                  <LinkBox link="/link1" heading={"A Crime Against Nature"} img={slenderCruellaImg}/>
-                  <LinkBox link="/link1" heading={"Who framed Winnie?"} img={winnieSupperImg}/>
+                <div className='layout-hexagon third-layout-hexagon'></div>
+                <div className='layout-hexagon second-layout-hexagon'></div>
+                <div className='layout-hexagon top-layout-hexagon'>
+                  <div className='content-container'>
+                    <KoalaView />
+                  </div>
+                  {/* <Header />
+                  <div className='linkbox-container'>
+                    <LinkBox link="/koala" heading={"Koala C. Martin"} img={koalaImg} />
+                    <LinkBox link="/link1" heading={"The Supermarked"} img={guineaPigImg} />
+                    <LinkBox link="/link1" heading={"Look Away"} img={uglyDucklingImg} />
+                    <LinkBox link="/link1" heading={"A Crime Against Nature"} img={slenderCruellaImg} />
+                    <LinkBox link="/link1" heading={"Who framed Winnie?"} img={winnieSupperImg} />
+                  </div> */}
                 </div>
               </div>
-
             </>
           }
         />
         <Route path='/koala' element={<KoalaView />}></Route>
       </Routes>
-    </Router>
+    </Router >
   );
 }
 

@@ -1,0 +1,89 @@
+:root {
+    --w-tot: 90vw;
+    --s: calc(var(--w-tot)/2);
+    --h: calc(1.73*var(--s));
+    --w: var(--s);
+    --cx: 45vw;
+    --top-vertical-rect-left: calc(var(--cx) - var(--w)/2);
+    --top-vertical-rect-top: 0px;
+    --shift-x: calc(0.056 * var(--w-tot));
+    --shift-y: 0 * var(--w-tot);
+}
+
+@media only screen and (min-width: 1000px) {
+    :root {
+        --w-tot: 900px;
+    }
+}
+
+.app-container {
+    position: relative;
+}
+
+.layout-hexagon,
+.layout-hexagon::before,
+.layout-hexagon::after {
+    position: absolute;
+    width: var(--w);
+    height: var(--h);
+}
+
+.layout-hexagon::before,
+.layout-hexagon::after {
+    content: "";
+}
+
+/* backward leaning rect */
+.layout-hexagon::before {
+    transform: rotate(-60deg);
+}
+
+/* forward leaning rect */
+.layout-hexagon::after {
+    transform: rotate(60deg);
+    left: 0px;
+    top: 0px;
+}
+
+.top-layout-hexagon {
+    left: var(--top-vertical-rect-left);
+    top: var(--top-vertical-rect-top);
+}
+
+.top-layout-hexagon,
+.top-layout-hexagon::before,
+.top-layout-hexagon::after {
+    background-color: var(--color-primary-500);
+    z-index: -1;
+}
+
+.second-layout-hexagon {
+    left: calc(var(--top-vertical-rect-left) + var(--shift-x));
+    top: calc(var(--top-vertical-rect-top) + var(--shift-y));
+}
+
+.second-layout-hexagon,
+.second-layout-hexagon::before,
+.second-layout-hexagon::after {
+    background-color: var(--color-primary-600);
+    z-index: -2;
+}
+
+.third-layout-hexagon {
+    left: calc(var(--top-vertical-rect-left) + 2 * var(--shift-x));
+    top: calc(var(--top-vertical-rect-top) + 2 * var(--shift-y));
+}
+
+.third-layout-hexagon,
+.third-layout-hexagon::before,
+.third-layout-hexagon::after {
+    background-color: var(--color-primary-700);
+    z-index: -3;
+}
+
+.content-container {
+    margin: 8vh 0vh 0vh 0vh;
+    padding: 0vh 0vh;
+    /* border-radius: 1vh; */
+    /* background-color: white; */
+}
