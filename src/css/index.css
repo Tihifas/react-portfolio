@@ -11,9 +11,9 @@ img {
 }
 
 /* TODO: move color to appcontainer instead */
-#root {
+/* #root {
   background-color: var(--color-primary-500);
-}
+} */
 
 body {
   margin: 0;

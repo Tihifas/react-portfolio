@@ -12,6 +12,7 @@ import guineaPigImg from './Images/DALL·E 2023-01-25 18.07.07 - Guinea pig havi
 import uglyDucklingImg from './Images/DALL·E 2023-01-25 18.07.12 - An old school scifi book cover about the ugly duckling.png';
 import slenderCruellaImg from './Images/DALL·E 2023-01-25 18.07.19 - The child of slenderman and Cruella de Vil, digital art.png';
 import winnieSupperImg from './Images/DALL·E 2023-01-25 18.07.24 - The last supper painting by Leonardo with characters from winnie the pooh.png';
+import { GeometryExperiments } from './Views/GeometryExperiments';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           }
         />
         <Route path='/koala' element={<KoalaView />}></Route>
+        <Route path='/GeometryExperiments' element={<GeometryExperiments />}></Route>
       </Routes>
     </Router >
   );
