@@ -105,8 +105,8 @@
     border-color: red;
     border-style: solid;
 }
-.triangle {
-    position: absolute;
+/* .triangle { */
+    /* position: absolute; */
     /* height: 100px;
     width: 100px; */
     /* border-color: blue;
@@ -115,9 +115,9 @@
     /* border: 10px solid black; */
         /* background-color: blue; */
         /* transform: rotate(-45deg); */
-        width: 0; 
-        height: 0; 
+        /* width: 0; 
+        height: 0; */
         /* border-left: 20px solid transparent;
         border-right: 20px solid transparent; */
-        border-top: 20px solid #f00;
-}
+        /* border-top: 20px solid #f00; */
+/* } */
