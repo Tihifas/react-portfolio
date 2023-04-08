@@ -16,14 +16,14 @@ const QuadrantTriangle = ({quadrant, width, height, color}) => {
             clipPath = 'polygon(0% 0%, 0% 100%, 100% 0%)';
             break;
         default:
-            throw new Error('quadrant has to be 1, 2, 3 or 4');
+            throw new Error('quadrant parameter has to be 1, 2, 3 or 4');
     }
     return (
     <div style={{
+        clipPath: clipPath,
         width: width,
         height: height,
         backgroundColor: color,
-        clipPath: clipPath,
         display: 'inline-block'
     }}></div>
   )

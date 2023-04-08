@@ -1,5 +1,7 @@
 :root {
     --w-tot: 90vw;
+
+
     --s: calc(var(--w-tot)/2);
     --h: calc(1.73*var(--s));
     --w: var(--s);
@@ -20,7 +22,20 @@
     position: relative;
 }
 
-.layout-hexagon,
+.layout-hexagon-container {
+}
+
+.layout-vertical-rect {
+    width: calc(var(--w-tot) * 80%);
+    height: calc(var(--w-tot) * 50%);
+}
+
+.layout-horizontal-rect {
+    width: calc(var(--w-tot));
+    height: calc(var(--w-tot) * 50%);
+}
+
+/* .layout-hexagon,
 .layout-hexagon::before,
 .layout-hexagon::after {
     position: absolute;
@@ -33,12 +48,10 @@
     content: "";
 }
 
-/* backward leaning rect */
 .layout-hexagon::before {
     transform: rotate(-60deg);
 }
 
-/* forward leaning rect */
 .layout-hexagon::after {
     transform: rotate(60deg);
     left: 0px;
@@ -79,7 +92,7 @@
 .third-layout-hexagon::after {
     background-color: var(--color-primary-700);
     z-index: -3;
-}
+} */
 
 .content-container {
     margin: 8vh 0vh 0vh 0vh;
@@ -90,7 +103,7 @@
 
 
 /* EXPERIMENTS */
-.layout-container {
+/* .layout-container {
     position: relative;
     width: 100px;
     height: 100px;
@@ -104,7 +117,7 @@
 .red-theme.layout-element {
     border-color: red;
     border-style: solid;
-}
+} */
 /* .triangle { */
     /* position: absolute; */
     /* height: 100px;
