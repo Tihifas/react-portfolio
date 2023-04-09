@@ -16,7 +16,7 @@ import QuadrantTriangle from './Components/Geometry/QuadrantTriangle';
 
 
 function App() {
-  let wTot = 300.0;
+  let wTot = 1000.0;
   
   let v = 60/360*2*Math.PI;
   let s = wTot/2;
@@ -25,7 +25,7 @@ function App() {
   
   let hTot = 2*ky;
 
-  let hRow2 = 0;
+  let hRow2 = 50;
 
   return (
     <Router>
@@ -34,7 +34,7 @@ function App() {
           element={
             <>
               <div className='app-container'>
-                <div className='layout-hexagon-container' style={{width: wTot+'px', height: hTot+'px', margin: '50px'}} >
+                <div className='layout-hexagon-container' style={{width: wTot+'px', height: hTot+'px', margin: '50px', position: 'relative', zIndex: '-1'}} >
                   <div className='layout-hexagon-row-1' style={{
                     display: 'block',
                     width: '100%',
@@ -54,13 +54,19 @@ function App() {
                       display: 'block',
                       width: wTot+'px',
                       height: hRow2+'px',
+                      position: 'relative'
                     }}>
+                    
                     <div style={{
                       display: 'inline-block',
                       width: '100%',
                       height: '100%',
                       backgroundColor: 'blue'
-                    }}></div>
+                    }}>
+                    <div style={{width: s, margin: 'auto'}}>
+                        <KoalaView />
+                      </div>
+                    </div>
                   </div>
 
                   <div className='layout-hexagon-row-3' style={{

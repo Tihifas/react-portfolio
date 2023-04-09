@@ -23,6 +23,12 @@
 }
 
 .layout-hexagon-container {
+    /* transition: transform 0.2s; */
+    transition: 0.2s;
+}
+
+.layout-hexagon-container:hover { 
+    /* transform: translateX(-400px); */
 }
 
 .layout-vertical-rect {
