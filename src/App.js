@@ -18,10 +18,10 @@ import HtmlHexagon from './Components/Geometry/HtmlHexagon';
 
 
 function App() {
-  let [windowWidth, windowWidthEvent] = useState(window.innerWidth)
+  // let [windowWidth, windowWidthEvent] = useState(window.innerWidth)
 
-  let hexWidth = windowWidth * 0.2;
-  // let hexWidth = 800;
+  // let hexWidth = windowWidth * 0.2;
+  let hexWidth = 800;
   let hRow2 = '400';
 
   let hexShiftX = '20';
