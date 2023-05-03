@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import { Header } from './Components/Header';
@@ -13,85 +14,28 @@ import slenderCruellaImg from './Images/DALL·E 2023-01-25 18.07.19 - The child 
 import winnieSupperImg from './Images/DALL·E 2023-01-25 18.07.24 - The last supper painting by Leonardo with characters from winnie the pooh.png';
 import { GeometryExperiments } from './Views/GeometryExperiments';
 import QuadrantTriangle from './Components/Geometry/QuadrantTriangle';
+import HtmlHexagon from './Components/Geometry/HtmlHexagon';
 
 
 function App() {
-  let wTot = 1000.0;
-  
-  let v = 60/360*2*Math.PI;
-  let s = wTot/2;
-  let kx = s*Math.cos(v);
-  let ky = s*Math.sin(v);
-  
-  let hTot = 2*ky;
+  let [windowWidth, windowWidthEvent] = useState(window.innerWidth)
 
-  let hRow2 = 50;
+  let hexWidth = windowWidth * 0.2;
+  // let hexWidth = 800;
+  let hRow2 = '400';
 
+  let hexShiftX = '20';
+  let hexShiftY = '10';
   return (
     <Router>
       <Routes>
         <Route path='/'
           element={
             <>
-              <div className='app-container'>
-                <div className='layout-hexagon-container' style={{width: wTot+'px', height: hTot+'px', margin: '50px', position: 'relative', zIndex: '-1'}} >
-                  <div className='layout-hexagon-row-1' style={{
-                    display: 'block',
-                    width: '100%',
-                    height: ky+'px'
-                  }} >
-                    <QuadrantTriangle quadrant={2} width={kx+'px'} height={'100%'} color={'blue'}/>
-                    <div style={{
-                      display: 'inline-block',
-                      width: s + 'px',
-                      height: '100%',
-                      backgroundColor: 'blue'
-                    }}></div>
-                    <QuadrantTriangle quadrant={1} width={kx+'px'} height={'100%'} color={'blue'}/>
-                  </div>
-                  
-                  <div className='layout-hexagon-row-2' style={{
-                      display: 'block',
-                      width: wTot+'px',
-                      height: hRow2+'px',
-                      position: 'relative'
-                    }}>
-                    
-                    <div style={{
-                      display: 'inline-block',
-                      width: '100%',
-                      height: '100%',
-                      backgroundColor: 'blue'
-                    }}>
-                    <div style={{width: s, margin: 'auto'}}>
-                        <KoalaView />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='layout-hexagon-row-3' style={{
-                    display: 'block',
-                    width: '100%',
-                    height: ky+'px'
-                  }} >
-                    <QuadrantTriangle quadrant={3} width={kx+'px'} height={'100%'} color={'blue'}/>
-                      <div style={{
-                        display: 'inline-block',
-                        width: s + 'px',
-                        height: '100%',
-                        backgroundColor: 'blue'
-                      }}></div>
-                      <QuadrantTriangle quadrant={4} width={kx+'px'} height={'100%'} color={'blue'}/>
-                  </div>
-                  {/* <Header />
-                  <div className='linkbox-container'>
-                    <LinkBox link="/koala" heading={"Koala C. Martin"} img={koalaImg} />
-                    <LinkBox link="/link1" heading={"The Supermarked"} img={guineaPigImg} />
-                    <LinkBox link="/link1" heading={"Look Away"} img={uglyDucklingImg} />
-                    <LinkBox link="/link1" heading={"A Crime Against Nature"} img={slenderCruellaImg} />
-                    <LinkBox link="/link1" heading={"Who framed Winnie?"} img={winnieSupperImg} />
-                  </div> */}
-                </div>
+              <div className='app-container' style={{position: 'relative'}}>
+                <HtmlHexagon backgroundColor={'lightSkyBlue'} width={hexWidth} hRow2={hRow2} left={0} top={0} zIndex={'-1'} content={<KoalaView />}/>
+                <HtmlHexagon backgroundColor={'lightGreen'} width={hexWidth} hRow2={hRow2} left={hexShiftX} top={hexShiftY} zIndex={'-2'} content={<KoalaView />}/>
+                <HtmlHexagon backgroundColor={'lightCoral'} width={hexWidth} hRow2={hRow2} left={hexShiftX*2} top={hexShiftY*2} zIndex={'-3'} content={<KoalaView />}/>
               </div>
             </>
           }
@@ -102,5 +46,14 @@ function App() {
     </Router >
   );
 }
+
+{/* <Header />
+                  <div className='linkbox-container'>
+                    <LinkBox link="/koala" heading={"Koala C. Martin"} img={koalaImg} />
+                    <LinkBox link="/link1" heading={"The Supermarked"} img={guineaPigImg} />
+                    <LinkBox link="/link1" heading={"Look Away"} img={uglyDucklingImg} />
+                    <LinkBox link="/link1" heading={"A Crime Against Nature"} img={slenderCruellaImg} />
+                    <LinkBox link="/link1" heading={"Who framed Winnie?"} img={winnieSupperImg} />
+                  </div> */}
 
 export default App;
