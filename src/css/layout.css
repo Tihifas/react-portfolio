@@ -41,72 +41,39 @@
     height: calc(var(--w-tot) * 50%);
 }
 
-/* .layout-hexagon,
-.layout-hexagon::before,
-.layout-hexagon::after {
-    position: absolute;
-    width: var(--w);
-    height: var(--h);
+/*--- HEXAGONS ---*/
+.html-hexagon-container{
+    transition: transform .60s;
 }
 
-.layout-hexagon::before,
-.layout-hexagon::after {
-    content: "";
+.html-hexagon-layer-1{
+    /* transform: translateX(0px) translateY(0px); */
+    transition: transform .60s cubic-bezier(0.39,-60.0, 0.58, 1);
+    z-index: 13;
 }
 
-.layout-hexagon::before {
-    transform: rotate(-60deg);
-}
-
-.layout-hexagon::after {
-    transform: rotate(60deg);
-    left: 0px;
-    top: 0px;
-}
-
-.top-layout-hexagon {
-    left: var(--top-vertical-rect-left);
-    top: var(--top-vertical-rect-top);
-}
-
-.top-layout-hexagon,
-.top-layout-hexagon::before,
-.top-layout-hexagon::after {
-    background-color: var(--color-primary-500);
-    z-index: -1;
-}
-
-.second-layout-hexagon {
-    left: calc(var(--top-vertical-rect-left) + var(--shift-x));
-    top: calc(var(--top-vertical-rect-top) + var(--shift-y));
-}
-
-.second-layout-hexagon,
-.second-layout-hexagon::before,
-.second-layout-hexagon::after {
-    background-color: var(--color-primary-600);
-    z-index: -2;
-}
-
-.third-layout-hexagon {
-    left: calc(var(--top-vertical-rect-left) + 2 * var(--shift-x));
-    top: calc(var(--top-vertical-rect-top) + 2 * var(--shift-y));
-}
-
-.third-layout-hexagon,
-.third-layout-hexagon::before,
-.third-layout-hexagon::after {
-    background-color: var(--color-primary-700);
-    z-index: -3;
+/* @keyframes switch-to-layer-1{
+    50% {
+        transform: translateX(1000px) translateY(-1000px);
+    }
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
 } */
 
-.content-container {
-    margin: 8vh 0vh 0vh 0vh;
-    padding: 0vh 0vh;
-    /* border-radius: 1vh; */
-    /* background-color: white; */
+.html-hexagon-layer-2{
+    transform: translateX(40px) translateY(10px);
+    z-index: 12;
 }
 
+.html-hexagon-layer-3{
+    transform: translateX(80px) translateY(20px);
+    z-index: 11;
+}
+
+/* .html-hexagon-layer-0{
+    transform: translateX(1000px) translateY(-1000px);
+} */
 
 /* EXPERIMENTS */
 /* .layout-container {
@@ -124,19 +91,3 @@
     border-color: red;
     border-style: solid;
 } */
-/* .triangle { */
-    /* position: absolute; */
-    /* height: 100px;
-    width: 100px; */
-    /* border-color: blue;
-    border-style: solid; */
-    /* border-width: 0px 0px 50px 0px; */
-    /* border: 10px solid black; */
-        /* background-color: blue; */
-        /* transform: rotate(-45deg); */
-        /* width: 0; 
-        height: 0; */
-        /* border-left: 20px solid transparent;
-        border-right: 20px solid transparent; */
-        /* border-top: 20px solid #f00; */
-/* } */

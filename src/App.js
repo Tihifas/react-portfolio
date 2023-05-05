@@ -24,8 +24,8 @@ function App() {
   // let hexWidth = 800;
   let hRow2 = 0;
 
-  let hexShiftY = 10;
-  let hexShiftX = hexShiftY*4;
+  // let hexShiftY = 10;
+  // let hexShiftX = hexShiftY*4;
   return (
     <Router>
       <Routes>
@@ -34,14 +34,18 @@ function App() {
             <>
               <div className='app-container' style={{position: 'relative', margin: '15px'}}>
                 <HtmlHexagon
-                  backgroundColor={'lightSkyBlue'} width={hexWidth} hRow2={hRow2} left={0} top={0} zIndex={13}
-                  content={<KoalaView />} slantedHeading={<a href="https://www.wikipedia.org/">Front&nbsp;Page</a>} />
+                  backgroundColor={'lightCoral'} width={hexWidth} hRow2={hRow2} left={0} top={0}
+                  content={<KoalaView />} slantedHeading={'Back\u00A0Gallery'}
+                  stateClass={'html-hexagon-layer-3'}/>
+                  <HtmlHexagon
+                    backgroundColor={'lightGreen'} width={hexWidth} hRow2={hRow2} left={0} top={0}
+                    content={<KoalaView />} slantedHeading={<a href="https://www.wikipedia.org/">Cool&nbsp;Stuff</a>}
+                    stateClass={'html-hexagon-layer-2'}/>
                 <HtmlHexagon
-                  backgroundColor={'lightGreen'} width={hexWidth} hRow2={hRow2} left={hexShiftX} top={hexShiftY} zIndex={12}
-                  content={<KoalaView />} slantedHeading={<a href="https://www.wikipedia.org/">Cool&nbsp;Stuff</a>}/>
-                <HtmlHexagon
-                  backgroundColor={'lightCoral'} width={hexWidth} hRow2={hRow2} left={hexShiftX*2} top={hexShiftY*2} zIndex={11}
-                  content={<KoalaView />} slantedHeading={'Back\u00A0Gallery'}/>
+                  backgroundColor={'lightSkyBlue'} width={hexWidth} hRow2={hRow2} left={0} top={0}
+                  content={<KoalaView />} slantedHeading={<a href="https://www.wikipedia.org/">Front&nbsp;Page</a>}
+                  stateClass={'html-hexagon-layer-1'}/>
+
               </div>
             </>
           }
