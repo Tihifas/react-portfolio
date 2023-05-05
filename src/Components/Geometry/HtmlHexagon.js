@@ -1,7 +1,7 @@
 import React from 'react'
 import QuadrantTriangle from './QuadrantTriangle';
 
-const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content}) => {
+const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content, slantedHeading}) => {
     let wTot = width;
 
     let v = 60 / 360 * 2 * Math.PI;
@@ -14,7 +14,7 @@ const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content}
     let contentTop = -ky/2;
 
     return (
-        <div className='html-hexagon-container' style={{ width: wTot + 'px', height: hTot + 'px', margin: '50px', position: 'absolute', left: left+'px', top: top+'px', zIndex: zIndex }} >
+        <div className='html-hexagon-container' style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', zIndex: zIndex, isolation: 'isolate' }} >
             <div className='html-hexagon-row-1' style={{
                 display: 'block',
                 width: '100%',
@@ -25,8 +25,13 @@ const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content}
                     display: 'inline-block',
                     width: s + 'px',
                     height: '100%',
-                    backgroundColor: backgroundColor
-                }}></div>
+                    backgroundColor: backgroundColor,
+                    position: 'relative'
+                }}>
+                    <span className='html-hexagon-slanted-heading' style={{position:'absolute', top: '5px', left: '101%', zIndex: '3', transform: 'rotate(60deg)', transformOrigin: 'top left'}}>
+                        {slantedHeading}
+                        </span>
+                </div>
                 <QuadrantTriangle quadrant={1} width={kx + 'px'} height={'100%'} color={backgroundColor} />
             </div>
 
