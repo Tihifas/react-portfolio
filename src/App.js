@@ -19,7 +19,7 @@ import HtmlHexagon from './Components/Geometry/HtmlHexagon';
 
 function App() {
   let [windowWidth, windowWidthEvent] = useState(window.innerWidth)
-  let hexWidth = windowWidth * 0.8;
+  let hexWidth = windowWidth * 0.7;
 
   // let hexWidth = 800;
   let hRow2 = 0;
@@ -35,10 +35,10 @@ function App() {
               <div className='app-container' style={{position: 'relative', margin: '15px'}}>
                 <HtmlHexagon
                   backgroundColor={'lightSkyBlue'} width={hexWidth} hRow2={hRow2} left={0} top={0} zIndex={13}
-                  content={<KoalaView />} slantedHeading={'Front\u00A0Page'}/>
+                  content={<KoalaView />} slantedHeading={<a href="https://www.wikipedia.org/">Front&nbsp;Page</a>} />
                 <HtmlHexagon
                   backgroundColor={'lightGreen'} width={hexWidth} hRow2={hRow2} left={hexShiftX} top={hexShiftY} zIndex={12}
-                  content={<KoalaView />} slantedHeading={'Cool\u00A0Stuff'}/>
+                  content={<KoalaView />} slantedHeading={<a href="https://www.wikipedia.org/">Cool&nbsp;Stuff</a>}/>
                 <HtmlHexagon
                   backgroundColor={'lightCoral'} width={hexWidth} hRow2={hRow2} left={hexShiftX*2} top={hexShiftY*2} zIndex={11}
                   content={<KoalaView />} slantedHeading={'Back\u00A0Gallery'}/>

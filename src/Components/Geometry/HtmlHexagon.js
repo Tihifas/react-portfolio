@@ -14,7 +14,7 @@ const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content,
     let contentTop = -ky/2;
 
     return (
-        <div className='html-hexagon-container' style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', zIndex: zIndex, isolation: 'isolate' }} >
+        <div className='html-hexagon-container' style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', zIndex: zIndex, isolation: 'isolate', pointerEvents:'none'}} >
             <div className='html-hexagon-row-1' style={{
                 display: 'block',
                 width: '100%',
@@ -28,9 +28,9 @@ const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content,
                     backgroundColor: backgroundColor,
                     position: 'relative'
                 }}>
-                    <span className='html-hexagon-slanted-heading' style={{position:'absolute', top: '5px', left: '101%', zIndex: '3', transform: 'rotate(60deg)', transformOrigin: 'top left'}}>
+                    <div className='html-hexagon-slanted-heading' style={{position:'absolute', top: '1%', left: '100%', transform: 'rotate(60deg)', transformOrigin: 'top left', zIndex: zIndex+1,  pointerEvents:'auto'}}>
                         {slantedHeading}
-                        </span>
+                        </div>
                 </div>
                 <QuadrantTriangle quadrant={1} width={kx + 'px'} height={'100%'} color={backgroundColor} />
             </div>
