@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import { Header } from './Components/Header';
@@ -18,9 +18,15 @@ import HtmlHexagon from './Components/Geometry/HtmlHexagon';
 
 
 function App() {
-  let [windowWidth, windowWidthEvent] = useState(window.innerWidth)
-  let hexWidth = windowWidth * 0.7;
+  let [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  let handleResizeWindow = () => {
+    setWindowWidth(window.innerWidth);
+  }
+  useEffect(() =>{
+    window.addEventListener('resize', handleResizeWindow)
+  }, []);
 
+  let hexWidth = windowWidth * 0.7;
   // let hexWidth = 800;
   let hRow2 = 0;
 
