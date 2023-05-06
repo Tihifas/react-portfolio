@@ -26,7 +26,7 @@ function App() {
     window.addEventListener('resize', handleResizeWindow)
   }, []);
 
-  let hexWidth = windowWidth * 0.7;
+  let hexWidth = windowWidth * 0.85;
   // let hexWidth = 800;
   let hRow2 = 0;
 
@@ -86,11 +86,10 @@ let slantedPressed1 = () => {
                     backgroundColor={'lightGreen'} width={hexWidth} hRow2={hRow2} left={0} top={0}
                     content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
                     stateClass={hex2StateClass}/>
-                <HtmlHexagon
-                  backgroundColor={'lightSkyBlue'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                  content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
-                  stateClass={hex1StateClass}/>
-
+                  <HtmlHexagon
+                    backgroundColor={'lightSkyBlue'} width={hexWidth} hRow2={hRow2} left={0} top={0}
+                    content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
+                    stateClass={hex1StateClass}/>
               </div>
             </>
           }

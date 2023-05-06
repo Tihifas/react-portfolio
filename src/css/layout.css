@@ -1,15 +1,8 @@
 :root {
-    --w-tot: 90vw;
 
-
-    --s: calc(var(--w-tot)/2);
-    --h: calc(1.73*var(--s));
-    --w: var(--s);
-    --cx: 45vw;
-    --top-vertical-rect-left: calc(var(--cx) - var(--w)/2);
-    --top-vertical-rect-top: 0px;
-    --shift-x: calc(0.056 * var(--w-tot));
-    --shift-y: 0 * var(--w-tot);
+    --hex-shift-x: 40px;
+    --hex-shift-y: 10px;
+    --layer-animation-time: .3s;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -22,72 +15,22 @@
     position: relative;
 }
 
-.layout-hexagon-container {
-    /* transition: transform 0.2s; */
-    transition: 0.2s;
-}
-
-.layout-hexagon-container:hover { 
-    /* transform: translateX(-400px); */
-}
-
-.layout-vertical-rect {
-    width: calc(var(--w-tot) * 80%);
-    height: calc(var(--w-tot) * 50%);
-}
-
-.layout-horizontal-rect {
-    width: calc(var(--w-tot));
-    height: calc(var(--w-tot) * 50%);
-}
-
 /*--- HEXAGONS ---*/
 .html-hexagon-container{
-    transition: transform .60s;
+    transition: transform var(--layer-animation-time), z-index var(--layer-animation-time);
 }
 
 .html-hexagon-layer-1{
-    /* transform: translateX(0px) translateY(0px); */
-    transition: transform .60s cubic-bezier(0.39,-60.0, 0.58, 1);
     z-index: 13;
 }
 
-/* @keyframes switch-to-layer-1{
-    50% {
-        transform: translateX(1000px) translateY(-1000px);
-    }
-    100% {
-        transform: translateX(0px) translateY(0px);
-    }
-} */
-
 .html-hexagon-layer-2{
-    transform: translateX(40px) translateY(10px);
+    animation-name: none;
+    transform: translateX(var(--hex-shift-x)) translateY(var(--hex-shift-y));
     z-index: 12;
 }
 
 .html-hexagon-layer-3{
-    transform: translateX(80px) translateY(20px);
+    transform: translateX(calc(var(--hex-shift-x)*2)) translateY(calc(var(--hex-shift-y)*2));
     z-index: 11;
 }
-
-/* .html-hexagon-layer-0{
-    transform: translateX(1000px) translateY(-1000px);
-} */
-
-/* EXPERIMENTS */
-/* .layout-container {
-    position: relative;
-    width: 100px;
-    height: 100px;
-}
-
-.blue-theme.layout-element {
-    border-color: blue;
-    border-style: solid;
-}
-
-.red-theme.layout-element {
-    border-color: red;
-    border-style: solid;
-} */
