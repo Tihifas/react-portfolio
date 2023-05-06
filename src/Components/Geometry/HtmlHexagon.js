@@ -9,6 +9,8 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
     let kx = s * Math.cos(v);
     let ky = s * Math.sin(v);
 
+    let marginGabFix = '-.6px'
+
     let hTot = 2 * ky;
 
     // let contentTop = -Math.min(ky*.75, 300);
@@ -27,7 +29,9 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
                     display: 'inline-block',
                     width: s + 'px',
                     height: '100%',
-                    position: 'relative'
+                    position: 'relative',
+                    marginLeft: marginGabFix,
+                    marginRight: marginGabFix,
                 }}>
                     <div className='html-hexagon-slanted-heading' style={{position:'absolute', top: '1%', left: '100%', transform: 'rotate(60deg)', transformOrigin: 'top left', zIndex: 11,  pointerEvents:'auto'}}>
                         {slantedHeading}
@@ -40,7 +44,8 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
                 display: 'block',
                 width: wTot + 'px',
                 height: hRow2,
-                position: 'relative'
+                position: 'relative',
+                marginTop: marginGabFix
             }}>
 
                 <div className='background-color-1' style={{
@@ -63,7 +68,9 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
                 <div className='background-color-1' style={{
                     display: 'inline-block',
                     width: s + 'px',
-                    height: '100%'
+                    height: '100%',
+                    marginLeft: marginGabFix,
+                    marginRight: marginGabFix
                 }}></div>
                 <QuadrantTriangle quadrant={4} width={kx + 'px'} height={'100%'} cssClasses={'background-color-1'} />
             </div>
