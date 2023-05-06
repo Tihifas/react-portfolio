@@ -9,7 +9,7 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
     let kx = s * Math.cos(v);
     let ky = s * Math.sin(v);
 
-    let marginGabFix = '-.6px'
+    let marginGabFix = '-.7px'
 
     let hTot = 2 * ky;
 
@@ -53,7 +53,7 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
                     width: '100%',
                     height: '100%',
                 }}>
-                    <div className='html-hexagon-content' style={{ width: s, position: 'relative', margin: 'auto', top: contentTop+'px', pointerEvents: 'all' }}>
+                    <div className='html-hexagon-content background-color-1' style={{ width: s, position: 'relative', margin: 'auto', top: contentTop+'px', pointerEvents: 'all' }}>
                         {content}
                     </div>
                 </div>

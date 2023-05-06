@@ -1,5 +1,9 @@
 :root {
-
+    --color-light: #E0E0E0;
+    --color-middle: #F05454;
+    --color-dark: #30475E;
+    --color-darkest: #222831;
+    
     --hex-shift-x: 40px;
     --hex-shift-y: 10px;
     --layer-animation-time: .3s;
@@ -15,24 +19,35 @@
     position: relative;
 }
 
+.layout-hexagon-container {
+    position: relative;
+    /* width: 1000px; */
+    margin-top: 15px;
+    margin-left: 300px;
+}
+
 html {
-    background-color: #222831;
+    background-color: var(--color-darkest);
 }
 
 .theme-1 .background-color-1{
-    background-color: #E8E8E8;
+    background-color: var(--color-light);
    }
 
 .theme-2  .background-color-1 {
-    background-color: #F05454;
+    background-color: var(--color-middle);
    }
 
 .theme-3 .background-color-1 {
- background-color: #30475E;
+ background-color: var(--color-dark);
+}
+
+.theme-1, .theme-2 {
+    color: var(--color-darkest);
 }
 
 .theme-3 {
-    color: white;
+    color: var(--color-light);
 }
 
 

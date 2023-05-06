@@ -26,43 +26,43 @@ function App() {
   // let hexWidth = 800;
   let hRow2 = 0;
 
-let [hex1Layer, setHex1Layer] = useState(1)
-let [hex2Layer, setHex2Layer] = useState(2)
-let [hex3Layer, setHex3Layer] = useState(3)
+  let [hex1Layer, setHex1Layer] = useState(1)
+  let [hex2Layer, setHex2Layer] = useState(2)
+  let [hex3Layer, setHex3Layer] = useState(3)
 
-let [hex1StateClass, setHex1StateClass] = useState('html-hexagon-layer-1')
-let [hex2StateClass, setHex2StateClass] = useState('html-hexagon-layer-2')
-let [hex3StateClass, setHex3StateClass] = useState('html-hexagon-layer-3')
+  let [hex1StateClass, setHex1StateClass] = useState('html-hexagon-layer-1')
+  let [hex2StateClass, setHex2StateClass] = useState('html-hexagon-layer-2')
+  let [hex3StateClass, setHex3StateClass] = useState('html-hexagon-layer-3')
 
-useEffect(() => {
-  setHex1StateClass(`html-hexagon-layer-${hex1Layer}`)
-}, [hex1Layer])
-useEffect(() => {
-  setHex2StateClass(`html-hexagon-layer-${hex2Layer}`)
-}, [hex2Layer])
-useEffect(() => {
-  setHex3StateClass(`html-hexagon-layer-${hex3Layer}`)
-}, [hex3Layer])
+  useEffect(() => {
+    setHex1StateClass(`html-hexagon-layer-${hex1Layer}`)
+  }, [hex1Layer])
+  useEffect(() => {
+    setHex2StateClass(`html-hexagon-layer-${hex2Layer}`)
+  }, [hex2Layer])
+  useEffect(() => {
+    setHex3StateClass(`html-hexagon-layer-${hex3Layer}`)
+  }, [hex3Layer])
 
-let slantedPressed1 = () => {
-  if(hex1Layer != 1){
-    setHex1Layer(1)
-    setHex2Layer(old => Math.min(old+1, 3))
-    setHex3Layer(old => Math.min(old+1, 3))
+  let slantedPressed1 = () => {
+    if (hex1Layer != 1) {
+      setHex1Layer(1)
+      setHex2Layer(old => Math.min(old + 1, 3))
+      setHex3Layer(old => Math.min(old + 1, 3))
+    }
   }
-}
   let slantedPressed2 = () => {
-    if(hex2Layer != 1){
+    if (hex2Layer != 1) {
       setHex2Layer(1)
-      setHex1Layer(old => Math.min(old+1, 3))
-      setHex3Layer(old => Math.min(old+1, 3))
+      setHex1Layer(old => Math.min(old + 1, 3))
+      setHex3Layer(old => Math.min(old + 1, 3))
     }
   }
   let slantedPressed3 = () => {
-    if(hex3Layer != 1){
+    if (hex3Layer != 1) {
       setHex3Layer(1)
-      setHex1Layer(old => Math.min(old+1, 3))
-      setHex2Layer(old => Math.min(old+1, 3))
+      setHex1Layer(old => Math.min(old + 1, 3))
+      setHex2Layer(old => Math.min(old + 1, 3))
     }
   }
   // let hexShiftY = 10;
@@ -73,19 +73,21 @@ let slantedPressed1 = () => {
         <Route path='/'
           element={
             <>
-              <div className='app-container' style={{position: 'relative', margin: '15px'}}>
-                <HtmlHexagon
-                  backgroundColor={'#FD8A8A'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                  content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery</div>}
-                  extraClasses={`${hex3StateClass} ${'theme-3'}`}/>
+              <div className='app-container'>
+                <div className='layout-hexagon-container'>
+                  <HtmlHexagon
+                    backgroundColor={'#FD8A8A'} width={hexWidth} hRow2={hRow2} left={0} top={0}
+                    content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery&nbsp;</div>}
+                    extraClasses={`${hex3StateClass} ${'theme-3'}`} />
                   <HtmlHexagon
                     backgroundColor={'#F1F7B5'} width={hexWidth} hRow2={hRow2} left={0} top={0}
                     content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
-                    extraClasses={`${hex2StateClass} ${'theme-2'}`}/>
+                    extraClasses={`${hex2StateClass} ${'theme-2'}`} />
                   <HtmlHexagon
                     backgroundColor={'#A8D1D1'} width={hexWidth} hRow2={hRow2} left={0} top={0}
                     content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
-                    extraClasses={`${hex1StateClass} ${'theme-1'}`}/>
+                    extraClasses={`${hex1StateClass} ${'theme-1'}`} />
+                </div>
               </div>
             </>
           }
