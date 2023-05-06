@@ -84,3 +84,7 @@ body {
 .image-row-nested-img {
   width: 100%;
 }
+
+.clickable-text {
+  cursor: pointer;
+}

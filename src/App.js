@@ -22,7 +22,7 @@ function App() {
   let handleResizeWindow = () => {
     setWindowWidth(window.innerWidth);
   }
-  useEffect(() =>{
+  useEffect(() => {
     window.addEventListener('resize', handleResizeWindow)
   }, []);
 
@@ -30,6 +30,45 @@ function App() {
   // let hexWidth = 800;
   let hRow2 = 0;
 
+let [hex1Layer, setHex1Layer] = useState(1)
+let [hex2Layer, setHex2Layer] = useState(2)
+let [hex3Layer, setHex3Layer] = useState(3)
+
+let [hex1StateClass, setHex1StateClass] = useState('html-hexagon-layer-1')
+let [hex2StateClass, setHex2StateClass] = useState('html-hexagon-layer-2')
+let [hex3StateClass, setHex3StateClass] = useState('html-hexagon-layer-3')
+
+useEffect(() => {
+  setHex1StateClass(`html-hexagon-layer-${hex1Layer}`)
+}, [hex1Layer])
+useEffect(() => {
+  setHex2StateClass(`html-hexagon-layer-${hex2Layer}`)
+}, [hex2Layer])
+useEffect(() => {
+  setHex3StateClass(`html-hexagon-layer-${hex3Layer}`)
+}, [hex3Layer])
+
+let slantedPressed1 = () => {
+  if(hex1Layer != 1){
+    setHex1Layer(1)
+    setHex2Layer(old => Math.min(old+1, 3))
+    setHex3Layer(old => Math.min(old+1, 3))
+  }
+}
+  let slantedPressed2 = () => {
+    if(hex2Layer != 1){
+      setHex2Layer(1)
+      setHex1Layer(old => Math.min(old+1, 3))
+      setHex3Layer(old => Math.min(old+1, 3))
+    }
+  }
+  let slantedPressed3 = () => {
+    if(hex3Layer != 1){
+      setHex3Layer(1)
+      setHex1Layer(old => Math.min(old+1, 3))
+      setHex2Layer(old => Math.min(old+1, 3))
+    }
+  }
   // let hexShiftY = 10;
   // let hexShiftX = hexShiftY*4;
   return (
@@ -41,16 +80,16 @@ function App() {
               <div className='app-container' style={{position: 'relative', margin: '15px'}}>
                 <HtmlHexagon
                   backgroundColor={'lightCoral'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                  content={<KoalaView />} slantedHeading={'Back\u00A0Gallery'}
-                  stateClass={'html-hexagon-layer-3'}/>
+                  content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery</div>}
+                  stateClass={hex3StateClass}/>
                   <HtmlHexagon
                     backgroundColor={'lightGreen'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<KoalaView />} slantedHeading={<a href="https://www.wikipedia.org/">Cool&nbsp;Stuff</a>}
-                    stateClass={'html-hexagon-layer-2'}/>
+                    content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
+                    stateClass={hex2StateClass}/>
                 <HtmlHexagon
                   backgroundColor={'lightSkyBlue'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                  content={<KoalaView />} slantedHeading={<a href="https://www.wikipedia.org/">Front&nbsp;Page</a>}
-                  stateClass={'html-hexagon-layer-1'}/>
+                  content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
+                  stateClass={hex1StateClass}/>
 
               </div>
             </>
