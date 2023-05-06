@@ -15,6 +15,22 @@
     position: relative;
 }
 
+.theme-1 .background-color-1{
+    background-color: #A5C0DD;
+   }
+
+.theme-2  .background-color-1 {
+    background-color: #6C9BCF;
+   }
+
+.theme-3 .background-color-1 {
+ background-color: #654E92;
+}
+
+.theme-3 {
+    color: white;
+}
+
 /*--- HEXAGONS ---*/
 .html-hexagon-container{
     transition: transform var(--layer-animation-time), z-index var(--layer-animation-time);

@@ -1,7 +1,7 @@
 import React from 'react'
 import QuadrantTriangle from './QuadrantTriangle';
 
-const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content, slantedHeading, stateClass}) => {
+const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraClasses}) => {
     let wTot = width;
 
     let v = 60 / 360 * 2 * Math.PI;
@@ -16,25 +16,24 @@ const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content,
     let contentTop = -ky + contentDistFromTop;
 
     return (
-        <div className={`html-hexagon-container ${stateClass}`} style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', isolation: 'isolate', pointerEvents:'none'}} >
+        <div className={`html-hexagon-container ${extraClasses}`} style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', isolation: 'isolate', pointerEvents:'none'}} >
             <div className='html-hexagon-row-1' style={{
                 display: 'block',
                 width: '100%',
                 height: ky + 'px'
             }} >
-                <QuadrantTriangle quadrant={2} width={kx + 'px'} height={'100%'} color={backgroundColor} />
-                <div style={{
+                <QuadrantTriangle quadrant={2} width={kx + 'px'} height={'100%'} cssClasses={'background-color-1'}/>
+                <div className='background-color-1' style={{
                     display: 'inline-block',
                     width: s + 'px',
                     height: '100%',
-                    backgroundColor: backgroundColor,
                     position: 'relative'
                 }}>
                     <div className='html-hexagon-slanted-heading' style={{position:'absolute', top: '1%', left: '100%', transform: 'rotate(60deg)', transformOrigin: 'top left', zIndex: 11,  pointerEvents:'auto'}}>
                         {slantedHeading}
                         </div>
                 </div>
-                <QuadrantTriangle quadrant={1} width={kx + 'px'} height={'100%'} color={backgroundColor} />
+                <QuadrantTriangle quadrant={1} width={kx + 'px'} height={'100%'} cssClasses={'background-color-1'} />
             </div>
 
             <div className='html-hexagon-row-2' style={{
@@ -44,13 +43,12 @@ const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content,
                 position: 'relative'
             }}>
 
-                <div style={{
+                <div className='background-color-1' style={{
                     display: 'inline-block',
                     width: '100%',
                     height: '100%',
-                    backgroundColor: backgroundColor
                 }}>
-                    <div style={{ width: s, position: 'relative', margin: 'auto', top: contentTop+'px' }}>
+                    <div className='html-hexagon-content' style={{ width: s, position: 'relative', margin: 'auto', top: contentTop+'px', pointerEvents: 'all' }}>
                         {content}
                     </div>
                 </div>
@@ -61,14 +59,13 @@ const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content,
                 width: '100%',
                 height: ky + 'px'
             }} >
-                <QuadrantTriangle quadrant={3} width={kx + 'px'} height={'100%'} color={backgroundColor} />
-                <div style={{
+                <QuadrantTriangle quadrant={3} width={kx + 'px'} height={'100%'} cssClasses={'background-color-1'} />
+                <div className='background-color-1' style={{
                     display: 'inline-block',
                     width: s + 'px',
-                    height: '100%',
-                    backgroundColor: backgroundColor
+                    height: '100%'
                 }}></div>
-                <QuadrantTriangle quadrant={4} width={kx + 'px'} height={'100%'} color={backgroundColor} />
+                <QuadrantTriangle quadrant={4} width={kx + 'px'} height={'100%'} cssClasses={'background-color-1'} />
             </div>
         </div>
     )

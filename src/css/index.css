@@ -41,7 +41,6 @@ body {
   border-radius: 10px;
   padding: 10px;
   background-color: var(--color-primary-500);
-  pointer-events: all;
 }
 
 .linkbox-content {

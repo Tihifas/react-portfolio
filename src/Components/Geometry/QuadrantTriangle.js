@@ -1,6 +1,6 @@
 import React from 'react'
 
-const QuadrantTriangle = ({quadrant, width, height, color}) => {
+const QuadrantTriangle = ({quadrant, width, height, cssClasses}) => {
   let clipPath = '';
     switch (quadrant){
         case 1:
@@ -19,11 +19,10 @@ const QuadrantTriangle = ({quadrant, width, height, color}) => {
             throw new Error('quadrant parameter has to be 1, 2, 3 or 4');
     }
     return (
-    <div style={{
+    <div className={cssClasses} style={{
         clipPath: clipPath,
         width: width,
         height: height,
-        backgroundColor: color,
         display: 'inline-block'
     }}></div>
   )

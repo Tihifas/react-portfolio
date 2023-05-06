@@ -22,7 +22,7 @@ function App() {
     window.addEventListener('resize', handleResizeWindow)
   }, []);
 
-  let hexWidth = windowWidth * 0.85;
+  let hexWidth = Math.min(windowWidth * 0.85, 1200);
   // let hexWidth = 800;
   let hRow2 = 0;
 
@@ -75,17 +75,17 @@ let slantedPressed1 = () => {
             <>
               <div className='app-container' style={{position: 'relative', margin: '15px'}}>
                 <HtmlHexagon
-                  backgroundColor={'lightCoral'} width={hexWidth} hRow2={hRow2} left={0} top={0}
+                  backgroundColor={'#FD8A8A'} width={hexWidth} hRow2={hRow2} left={0} top={0}
                   content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery</div>}
-                  stateClass={hex3StateClass}/>
+                  extraClasses={`${hex3StateClass} ${'theme-3'}`}/>
                   <HtmlHexagon
-                    backgroundColor={'lightGreen'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<Layer2View />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
-                    stateClass={hex2StateClass}/>
+                    backgroundColor={'#F1F7B5'} width={hexWidth} hRow2={hRow2} left={0} top={0}
+                    content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
+                    extraClasses={`${hex2StateClass} ${'theme-2'}`}/>
                   <HtmlHexagon
-                    backgroundColor={'lightSkyBlue'} width={hexWidth} hRow2={hRow2} left={0} top={0}
+                    backgroundColor={'#A8D1D1'} width={hexWidth} hRow2={hRow2} left={0} top={0}
                     content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
-                    stateClass={hex1StateClass}/>
+                    extraClasses={`${hex1StateClass} ${'theme-1'}`}/>
               </div>
             </>
           }
