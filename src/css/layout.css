@@ -16,20 +16,31 @@
 }
 
 .theme-1 .background-color-1{
-    background-color: #A5C0DD;
+    background-color: #E8E8E8;
    }
 
 .theme-2  .background-color-1 {
-    background-color: #6C9BCF;
+    background-color: #F05454;
    }
 
 .theme-3 .background-color-1 {
- background-color: #654E92;
+ background-color: #30475E;
 }
 
 .theme-3 {
     color: white;
 }
+
+/*
+light
+92AFD7
+
+dark
+262A56
+
+*/
+
+
 
 /*--- HEXAGONS ---*/
 .html-hexagon-container{
