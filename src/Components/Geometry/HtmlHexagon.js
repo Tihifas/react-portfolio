@@ -11,7 +11,9 @@ const HtmlHexagon = ({backgroundColor, width, hRow2, left, top, zIndex, content,
 
     let hTot = 2 * ky;
 
-    let contentTop = -ky/2;
+    // let contentTop = -Math.min(ky*.75, 300);
+    let contentDistFromTop = Math.min(ky*.40, 175);
+    let contentTop = -ky + contentDistFromTop;
 
     return (
         <div className={`html-hexagon-container ${stateClass}`} style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', isolation: 'isolate', pointerEvents:'none'}} >
