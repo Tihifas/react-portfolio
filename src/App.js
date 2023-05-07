@@ -78,15 +78,15 @@ function App() {
                 <div className='layout-hexagon-container'>
                   <HtmlHexagon
                     backgroundColor={'#FD8A8A'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery&nbsp;</div>}
+                    content={<KoalaView />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery&nbsp;</div>}
                     extraClasses={`${hex3StateClass} ${'theme-3'}`} />
                   <HtmlHexagon
                     backgroundColor={'#F1F7B5'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
+                    content={<KoalaView />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
                     extraClasses={`${hex2StateClass} ${'theme-2'}`} />
                   <HtmlHexagon
                     backgroundColor={'#A8D1D1'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<KoalaView />} slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
+                    content={<Layer2View />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
                     extraClasses={`${hex1StateClass} ${'theme-1'}`} />
                 </div>
               </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import QuadrantTriangle from './QuadrantTriangle';
 
-const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraClasses}) => {
+const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraClasses, centeringMode}) => {
     let wTot = width;
 
     let v = 60 / 360 * 2 * Math.PI;
@@ -13,9 +13,23 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
 
     let hTot = 2 * ky;
 
+    let contentTop;
+    switch (centeringMode){
+        case 'text-content':
+            let contentDistFromTop = Math.min(ky*.40, 175);
+            contentTop = -ky + contentDistFromTop;
+            break;
+        case 'center-x-and-y':
+            //Did this because i could not make it work, but did not try that hard
+            throw new Error('unsupported centeringMode');
+            // contentTop = 0;
+            // break;
+        default:
+            throw new Error('unsupported centeringMode');
+    }
+
+
     // let contentTop = -Math.min(ky*.75, 300);
-    let contentDistFromTop = Math.min(ky*.40, 175);
-    let contentTop = -ky + contentDistFromTop;
 
     return (
         <div className={`html-hexagon-container ${extraClasses}`} style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', isolation: 'isolate', pointerEvents:'none'}} >
