@@ -4,6 +4,8 @@
   --color-primary-700: #707070;
   --color-primary-800: #383838;
   --color-primary-900: #000000;
+
+  --trangle-hexagon-gab: 10%;
 }
 
 img {
@@ -113,4 +115,39 @@ body {
  background-color: white;
  padding: 2px 5px;
  white-space: nowrap;
+}
+
+.triangle-imgs-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.triangle-imgs-container > img {
+  width: 200px;
+  height: 200px;
+}
+
+.triangle-imgs-container > img:nth-child(odd) {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.triangle-imgs-container > img:nth-child(even) {
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  /* border: 5px solid red; */
+}
+
+.triangle-imgs-container > img:nth-child(2) {
+  transform: translateX(calc(-50% + var(--trangle-hexagon-gab)));
+}
+.triangle-imgs-container > img:nth-child(3) {
+  transform: translateX(calc(-100% + 2 *var(--trangle-hexagon-gab)));
+}
+.triangle-imgs-container > img:nth-child(4) {
+  transform: translateX(-300%) translateY(calc(100% + var(--trangle-hexagon-gab)));
+}
+.triangle-imgs-container > img:nth-child(5) {
+  transform: translateX(calc(-350% + 1 *var(--trangle-hexagon-gab))) translateY(calc(100% + var(--trangle-hexagon-gab)));
+}
+.triangle-imgs-container > img:nth-child(6) {
+  transform: translateX(calc(-400% + 2 *var(--trangle-hexagon-gab))) translateY(calc(100% + var(--trangle-hexagon-gab)));
 }
