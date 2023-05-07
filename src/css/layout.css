@@ -9,21 +9,14 @@
     --layer-animation-time: .3s;
 }
 
-@media only screen and (min-width: 1000px) {
-    :root {
-        --w-tot: 900px;
-    }
-}
-
 .app-container {
     position: relative;
 }
 
 .layout-hexagon-container {
     position: relative;
-    /* width: 1000px; */
-    margin-top: 15px;
-    margin-left: 300px;
+    width: 64.5vw;
+    margin: 15px auto;
 }
 
 html {

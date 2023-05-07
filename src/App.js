@@ -22,7 +22,8 @@ function App() {
     window.addEventListener('resize', handleResizeWindow)
   }, []);
 
-  let hexWidth = Math.min(windowWidth * 0.85, 1200);
+  // let hexWidth = Math.min(windowWidth * 0.65, 1200);
+  let hexWidth = windowWidth * 0.60;
   // let hexWidth = 800;
   let hRow2 = 0;
 
