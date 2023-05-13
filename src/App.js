@@ -11,6 +11,7 @@ import Layer2View from './Views/Layer2View';
 import { GeometryExperiments } from './Views/GeometryExperiments';
 import QuadrantTriangle from './Components/Geometry/QuadrantTriangle';
 import HtmlHexagon from './Components/Geometry/HtmlHexagon';
+import { UglyDucklingView } from './Views/UglyDucklingView';
 
 
 function App() {
@@ -82,11 +83,11 @@ function App() {
                     extraClasses={`${hex3StateClass} ${'theme-3'}`} />
                   <HtmlHexagon
                     backgroundColor={'#F1F7B5'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<KoalaView />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
+                    content={<Layer2View />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
                     extraClasses={`${hex2StateClass} ${'theme-2'}`} />
                   <HtmlHexagon
                     backgroundColor={'#A8D1D1'} width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<Layer2View />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
+                    content={<UglyDucklingView />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
                     extraClasses={`${hex1StateClass} ${'theme-1'}`} />
                 </div>
               </div>
