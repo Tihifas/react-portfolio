@@ -1,6 +1,13 @@
 import React from 'react'
 
-const QuadrantTriangle = ({quadrant, width, height, cssClasses}) => {
+type QuadrantTriangleProps = {
+    quadrant: 1 | 2 | 3 | 4,
+    width: string,
+    height: string,
+    cssClasses: string
+}
+
+const QuadrantTriangle = ({quadrant, width, height, cssClasses}: QuadrantTriangleProps) => {
   let clipPath = '';
     switch (quadrant){
         case 1:

@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import QuadrantTriangle from './QuadrantTriangle';
 
-const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraClasses, centeringMode}) => {
+type HtmlHexagonPros = {
+    width: number,
+    hRow2: string,
+    left: number,
+    top: number,
+    content: ReactNode,
+    slantedHeading: string,
+    extraClasses: string,
+    centeringMode: 'text-content' | 'center-x-and-y'
+}
+
+const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraClasses, centeringMode}: HtmlHexagonPros) => {
     let wTot = width;
 
     let v = 60 / 360 * 2 * Math.PI;

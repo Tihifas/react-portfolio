@@ -1,17 +1,12 @@
-import logo from './logo.svg';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-import { Header } from './Components/Header';
-import { LinkBox } from './Components/LinkBox';
 
 import { KoalaView } from './Views/Koala';
 import Layer2View from './Views/Layer2View';
 
 import { GeometryExperiments } from './Views/GeometryExperiments';
-import QuadrantTriangle from './Components/Geometry/QuadrantTriangle';
-import HtmlHexagon from './Components/Geometry/HtmlHexagon';
-import { UglyDucklingView } from './Views/UglyDucklingView';
+import HtmlHexagon from './Components/Geometry/HtmlHexagon.tsx';
+import { UglyDucklingView } from './Views/UglyDucklingView.tsx';
 
 
 function App() {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import QuadrantTriangle from '../Components/Geometry/QuadrantTriangle';
+import QuadrantTriangle from '../Components/Geometry/QuadrantTriangle.tsx';
 import winnieSupperImg from '../Images/DALL·E 2023-01-25 18.07.24 - The last supper painting by Leonardo with characters from winnie the pooh.png';
 
 
