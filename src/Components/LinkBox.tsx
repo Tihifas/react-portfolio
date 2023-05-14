@@ -1,7 +1,14 @@
+import Module from 'module'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const LinkBox = ({link, heading, img}) => {
+type LinkBoxProps = {
+    link : string,
+    heading: string,
+    img: string
+}
+
+export const LinkBox = ({link, heading, img}: LinkBoxProps) => {
     return (
         <Link to={link} className='linkbox-outer'>
             <div className='linkbox-content'>

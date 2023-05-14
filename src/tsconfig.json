@@ -19,8 +19,4 @@
       "strict": true,
       "allowImportingTsExtensions": true
     }
-    // ,
-    // "include": [
-    //   "Types/customTypes.d.ts"
-    // ]
   }
