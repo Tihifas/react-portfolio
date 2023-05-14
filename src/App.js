@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { KoalaView } from './Views/Koala';
-import Layer2View from './Views/Layer2View';
-
-import { GeometryExperiments } from './Views/GeometryExperiments';
-import HtmlHexagon from './Components/Geometry/HtmlHexagon.tsx';
+import { KoalaView } from './Views/Koala.tsx';
+import Layer2View from './Views/Layer2View.tsx';
 import { UglyDucklingView } from './Views/UglyDucklingView.tsx';
+
+import {GeometryExperiments} from './Views/GeometryExperiments.tsx'
+
+import HtmlHexagon from './Components/Geometry/HtmlHexagon.tsx';
 
 
 function App() {
@@ -42,21 +43,21 @@ function App() {
   }, [hex3Layer])
 
   let slantedPressed1 = () => {
-    if (hex1Layer != 1) {
+    if (hex1Layer !== 1) {
       setHex1Layer(1)
       setHex2Layer(old => Math.min(old + 1, 3))
       setHex3Layer(old => Math.min(old + 1, 3))
     }
   }
   let slantedPressed2 = () => {
-    if (hex2Layer != 1) {
+    if (hex2Layer !== 1) {
       setHex2Layer(1)
       setHex1Layer(old => Math.min(old + 1, 3))
       setHex3Layer(old => Math.min(old + 1, 3))
     }
   }
   let slantedPressed3 = () => {
-    if (hex3Layer != 1) {
+    if (hex3Layer !== 1) {
       setHex3Layer(1)
       setHex1Layer(old => Math.min(old + 1, 3))
       setHex2Layer(old => Math.min(old + 1, 3))

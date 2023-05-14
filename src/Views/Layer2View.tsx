@@ -1,6 +1,4 @@
 import React from 'react'
-import { LinkBox } from '../Components/LinkBox'
-import { ContentViewLayout } from './ContentViewLayout'
 import koalaImg from '../Images/DALL·E 2023-01-25 18.07.04 - Koala Programmer by Leonardo Da Vinci.png';
 import guineaPigImg from '../Images/DALL·E 2023-01-25 18.07.07 - Guinea pig having an existential crisis in a grocery store.png';
 import uglyDucklingImg from '../Images/DALL·E 2023-01-25 18.07.12 - An old school scifi book cover about the ugly duckling.png';

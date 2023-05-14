@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import QuadrantTriangle from './QuadrantTriangle';
+import QuadrantTriangle from './QuadrantTriangle.tsx';
 
 type HtmlHexagonPros = {
     width: number,

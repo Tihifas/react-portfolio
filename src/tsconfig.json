@@ -1,8 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "display": "react portfolio tsconfig",
-  
-  
     "compilerOptions": {
       "lib": ["dom", "dom.iterable", "esnext"],
       "module": "esnext",
@@ -21,4 +19,8 @@
       "strict": true,
       "allowImportingTsExtensions": true
     }
+    // ,
+    // "include": [
+    //   "Types/customTypes.d.ts"
+    // ]
   }

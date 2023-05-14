@@ -1,4 +1,4 @@
-import { ContentViewLayout } from './ContentViewLayout'
+import { ContentViewLayout } from './ContentViewLayout.tsx'
 
 export const UglyDucklingView = () => {
     return (
