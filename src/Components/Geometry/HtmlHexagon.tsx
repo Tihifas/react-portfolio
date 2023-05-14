@@ -7,7 +7,7 @@ type HtmlHexagonPros = {
     left: number,
     top: number,
     content: ReactNode,
-    slantedHeading: string,
+    slantedHeading: ReactNode,
     extraClasses: string,
     centeringMode: 'text-content' | 'center-x-and-y'
 }
