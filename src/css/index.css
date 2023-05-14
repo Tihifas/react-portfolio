@@ -155,3 +155,16 @@ body {
 .triangle-imgs-container > img:nth-child(6) {
   transform: translateX(calc(-400% + 2 *var(--trangle-hexagon-gab))) translateY(calc(100% + var(--trangle-hexagon-gab)));
 }
+
+
+.img-row-container {
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+
+.img-row-container > img {
+  width: 75%;
+  margin: 0px auto;
+  /* max-height: 100%; */
+}

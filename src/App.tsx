@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { KoalaView } from './Views/Koala.tsx';
 import Layer2View from './Views/Layer2View.tsx';
-import { UglyDucklingView } from './Views/UglyDucklingView.tsx';
+// import { UglyDucklingView } from './Views/UglyDucklingView.tsx';
 
 import {GeometryExperiments} from './Views/GeometryExperiments.tsx'
 
 import HtmlHexagon from './Components/Geometry/HtmlHexagon.tsx';
+import { ViewWithTextAndImage } from './Views/ViewWithTextAndImage.tsx';
 
 
 function App() {
@@ -83,7 +84,7 @@ function App() {
                     extraClasses={`${hex2StateClass} ${'theme-2'}`} />
                   <HtmlHexagon
                     width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<UglyDucklingView />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
+                    content={<ViewWithTextAndImage />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
                     extraClasses={`${hex1StateClass} ${'theme-1'}`} />
                 </div>
               </div>
