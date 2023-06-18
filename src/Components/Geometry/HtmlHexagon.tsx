@@ -30,6 +30,7 @@ const HtmlHexagon = ({hexagonContainerId, width, hRow2, left, top, content, slan
         case 'text-content':
             let contentDistFromTop = Math.min(ky*.40, 175);
             contentTop = -ky + contentDistFromTop;
+            // console.log('contentTop: ' + contentTop);
             break;
         case 'below-hex-center':
             contentTop = 0;
