@@ -30,31 +30,33 @@ function App() {
   // --- elongate a hex experiments
 
 
-  let hRow2Hex1Val1 = "0px";
-  // let hRow2Hex1Val2 = "auto";
-  let [hRow2Hex1, sethRow2Hex1] = useState(hRow2Hex1Val1);
-  let experimentBtnCLick = () => {
-    let row2Elmnt = $('#html-hexagon-1 .html-hexagon-row-2');
-    console.log('row2Elmnt' + row2Elmnt)
+  let dynamicHeight0 = "0px";
+  let [hRow2DynamicHeight, sethRow2Hex1] = useState(dynamicHeight0);
 
+  let [heightWithText, setHeightWithText] = useState(0);
+  useEffect(() => {
+    let row2Elmnt = $('#html-hexagon-2 .html-hexagon-row-2');
     let heightBeforeSet = row2Elmnt.height();
     row2Elmnt.height('auto');
-    let heightWithText = row2Elmnt.height();
+    setHeightWithText(row2Elmnt.height());
+    console.log(row2Elmnt.height());
     row2Elmnt.height(heightBeforeSet);
+  }, []);
 
+  let ChangeHexHeight = () => {
+    if (hRow2DynamicHeight === dynamicHeight0) {
+      // let row2 = $('#html-hexagon-2 .html-hexagon-row-2');
+      // row2.css('display', 'block');
 
-    if (hRow2Hex1 === hRow2Hex1Val1) {
-      let heightWithTextMinus = heightWithText - 200*2;
-      // heightWithTextMinus = 0; //TODO undo
-
-      console.log('heightWithText: ' + heightWithText);
-      console.log('heightWithTextMinus: ' + heightWithTextMinus);
-      sethRow2Hex1('' + heightWithTextMinus + 'px'); //200 contentTop: how much text was moved for a particular resolution
+      let heightWithTextMinus = heightWithText - 200 * 2; //200 contentTop: how much text was moved for a particular resolution
+      sethRow2Hex1('' + heightWithText + 'px');
     }
     else {
-      sethRow2Hex1(hRow2Hex1Val1);
+      sethRow2Hex1(dynamicHeight0);
     }
   }
+
+  let ExperimentBtnClick = () => ChangeHexHeight;
   // -------------------------------------
 
 
@@ -89,6 +91,8 @@ function App() {
       setHex1Layer(old => Math.min(old + 1, 3))
       setHex3Layer(old => Math.min(old + 1, 3))
     }
+    //TODO: undo?
+    ChangeHexHeight()
   }
   let slantedPressed3 = () => {
     if (hex3Layer !== 1) {
@@ -106,19 +110,19 @@ function App() {
           element={
             <>
               <div className='app-container'>
-                <button onClick={experimentBtnCLick}> Experiment </button>
+                <button onClick={ExperimentBtnClick}> Experiment </button>
                 <div className='layout-hexagon-container'>
                   <HtmlHexagon hexagonContainerId='html-hexagon-3'
                     width={hexWidth} hRow2={hRow2} left={0} top={0}
                     content={<KoalaView />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery&nbsp;</div>}
                     extraClasses={`${hex3StateClass} ${'theme-3'}`} />
                   <HtmlHexagon hexagonContainerId='html-hexagon-2'
-                    width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<Layer2View />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
+                    width={hexWidth} hRow2={hRow2DynamicHeight} left={0} top={0}
+                    content={<TallView />} centeringMode='below-hex-center' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
                     extraClasses={`${hex2StateClass} ${'theme-2'}`} />
                   <HtmlHexagon hexagonContainerId='html-hexagon-1'
-                    width={hexWidth} hRow2={hRow2Hex1} left={0} top={0}
-                    content={<TallView />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
+                    width={hexWidth} hRow2={hRow2} left={0} top={0}
+                    content={<ViewWithTextAndImage />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
                     extraClasses={`${hex1StateClass} ${'theme-1'}`} />
                 </div>
               </div>

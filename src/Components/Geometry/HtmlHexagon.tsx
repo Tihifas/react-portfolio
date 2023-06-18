@@ -75,7 +75,7 @@ const HtmlHexagon = ({hexagonContainerId, width, hRow2, left, top, content, slan
                 display: 'block',
                 width: wTot + 'px',
                 height: hRow2,
-                transition: 'height 0.5s',
+                transition: 'height .5s',
                 position: 'relative',
                 marginTop: marginGabFix
             }}>
@@ -84,6 +84,7 @@ const HtmlHexagon = ({hexagonContainerId, width, hRow2, left, top, content, slan
                     display: 'inline-block',
                     width: '100%',
                     height: '100%',
+                    overflow: 'hidden'
                 }}>
                     <div className='html-hexagon-content background-color-1' style={{ width: s, position: 'relative', margin: 'auto', top: contentTop+'px', pointerEvents: 'all' }}>
                         {content}
