@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import * as $ from 'jquery';
 
 import { KoalaView } from './Views/Koala.tsx';
 import Layer2View from './Views/Layer2View.tsx';
 // import { UglyDucklingView } from './Views/UglyDucklingView.tsx';
 
-import {GeometryExperiments} from './Views/GeometryExperiments.tsx'
+import { GeometryExperiments } from './Views/GeometryExperiments.tsx'
 
 import HtmlHexagon from './Components/Geometry/HtmlHexagon.tsx';
 import { ViewWithTextAndImage } from './Views/ViewWithTextAndImage.tsx';
@@ -23,7 +24,34 @@ function App() {
   // let hexWidth = Math.min(windowWidth * 0.65, 1200);
   let hexWidth = windowWidth * 0.60;
   // let hexWidth = 800;
-  let hRow2 = "0";
+  let hRow2 = "0px";
+
+  // --- elongate a hex experiments
+
+  
+  let hRow2Hex1Val1 = "0px";
+  // let hRow2Hex1Val2 = "auto";
+  let [hRow2Hex1, sethRow2Hex1] = useState(hRow2Hex1Val1);
+  let experimentBtnCLick = () => {
+    let row2Elmnt = $('#html-hexagon-1 .html-hexagon-row-2');
+      console.log('row2Elmnt' + row2Elmnt)
+
+      let heightBeforeSet = row2Elmnt.height();
+
+      row2Elmnt.height('auto');
+      let heightWithText = row2Elmnt.height();
+
+      row2Elmnt.height(heightBeforeSet);
+      row2Elmnt.height(heightWithText);
+
+
+      //TODO did i break the below by setting to auto?
+    if(hRow2Hex1 === hRow2Hex1Val1) sethRow2Hex1(heightWithText);
+    //TODO improve hRow2Hex1 != hRow2Hex1 ?
+    if(hRow2Hex1 !== hRow2Hex1Val1) sethRow2Hex1(hRow2Hex1Val1);
+  }
+  // -------------------------------------
+
 
   let [hex1Layer, setHex1Layer] = useState(1)
   let [hex2Layer, setHex2Layer] = useState(2)
@@ -73,18 +101,19 @@ function App() {
           element={
             <>
               <div className='app-container'>
+                <button onClick={experimentBtnCLick}> Experiment </button>
                 <div className='layout-hexagon-container'>
-                  <HtmlHexagon
+                  <HtmlHexagon hexagonContainerId = 'html-hexagon-3'
                     width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<KoalaView />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery&nbsp;</div>}
+                    content={<KoalaView />} centeringMode='below-hex-center' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed3}>Back&nbsp;Gallery&nbsp;</div>}
                     extraClasses={`${hex3StateClass} ${'theme-3'}`} />
-                  <HtmlHexagon
+                  <HtmlHexagon hexagonContainerId = 'html-hexagon-2'
                     width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<Layer2View />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
+                    content={<Layer2View />} centeringMode='below-hex-center' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed2}>Cool&nbsp;Stuff</div>}
                     extraClasses={`${hex2StateClass} ${'theme-2'}`} />
-                  <HtmlHexagon
-                    width={hexWidth} hRow2={hRow2} left={0} top={0}
-                    content={<ViewWithTextAndImage />} centeringMode='text-content' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
+                  <HtmlHexagon hexagonContainerId = 'html-hexagon-1'
+                    width={hexWidth} hRow2={hRow2Hex1} left={0} top={0}
+                    content={<KoalaView />} centeringMode='below-hex-center' slantedHeading={<div className={'clickable-text'} onClick={slantedPressed1}>Front&nbsp;Page</div>}
                     extraClasses={`${hex1StateClass} ${'theme-1'}`} />
                 </div>
               </div>

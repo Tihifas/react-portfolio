@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react'
 import QuadrantTriangle from './QuadrantTriangle.tsx';
 
-type HtmlHexagonPros = {
+type HtmlHexagonProps = {
+    hexagonContainerId: string,
     width: number,
     hRow2: string,
     left: number,
@@ -9,10 +10,10 @@ type HtmlHexagonPros = {
     content: ReactNode,
     slantedHeading: ReactNode,
     extraClasses: string,
-    centeringMode: 'text-content' | 'center-x-and-y'
+    centeringMode: 'text-content' | 'below-hex-center' | 'center-x-and-y'
 }
 
-const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraClasses, centeringMode}: HtmlHexagonPros) => {
+const HtmlHexagon = ({hexagonContainerId, width, hRow2, left, top, content, slantedHeading, extraClasses, centeringMode}: HtmlHexagonProps) => {
     let wTot = width;
 
     let v = 60 / 360 * 2 * Math.PI;
@@ -30,11 +31,15 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
             let contentDistFromTop = Math.min(ky*.40, 175);
             contentTop = -ky + contentDistFromTop;
             break;
+        case 'below-hex-center':
+            contentTop = 0;
+            break;
         case 'center-x-and-y':
             //Did this because i could not make it work, but did not try that hard
             throw new Error('unsupported centeringMode');
             // contentTop = 0;
             // break;
+
         default:
             throw new Error('unsupported centeringMode');
     }
@@ -43,7 +48,7 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
     // let contentTop = -Math.min(ky*.75, 300);
 
     return (
-        <div className={`html-hexagon-container ${extraClasses}`} style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', isolation: 'isolate', pointerEvents:'none'}} >
+        <div id={hexagonContainerId} className={`html-hexagon-container ${extraClasses}`} style={{ width: wTot + 'px', height: hTot + 'px', position: 'absolute', left: left+'px', top: top+'px', isolation: 'isolate', pointerEvents:'none'}} >
             <div className='html-hexagon-row-1' style={{
                 display: 'block',
                 width: '100%',
@@ -69,6 +74,7 @@ const HtmlHexagon = ({width, hRow2, left, top, content, slantedHeading, extraCla
                 display: 'block',
                 width: wTot + 'px',
                 height: hRow2,
+                transition: 'height 0.5s',
                 position: 'relative',
                 marginTop: marginGabFix
             }}>
