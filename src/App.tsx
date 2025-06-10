@@ -131,6 +131,7 @@ function App() {
         />
         <Route path='/koala' element={<KoalaView />}></Route>
         <Route path='/GeometryExperiments' element={<GeometryExperiments />}></Route>
+        <Route path='/Layer2View' element={<Layer2View />}></Route>
       </Routes>
     </Router >
   );

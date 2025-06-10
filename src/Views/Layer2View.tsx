@@ -13,6 +13,7 @@ const Layer2View = () => {
       {/* <h2>Cool stuff</h2> */}
 
       <div className='triangle-imgs-container' style={{width: '73%', height: '73%', margin:'auto', transform:'translateX(-60%) translateY(-33%)', zIndex:'200', position: 'relative'}}>
+      {/* <div className='triangle-imgs-container' style={{transform:'translateX(100px) translateY(100px)', position: 'absolute'}}> */}
         <img src={koalaImg} />
         <img src={guineaPigImg} />
         <img src={uglyDucklingImg} />
