@@ -5,6 +5,7 @@ import * as $ from 'jquery';
 import { KoalaView } from './Views/Koala.tsx';
 import Layer2View from './Views/Layer2View.tsx';
 import PageWithImagesNotUsingLayout from './Views/PageWithImagesNotUsingLayout.tsx';
+import TilingView from './Views/TilingView.tsx';
 import { TallView } from './Views/TallView.tsx';
 // import { UglyDucklingView } from './Views/UglyDucklingView.tsx';
 
@@ -107,7 +108,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/'
+
+        <Route path='/' element={<TilingView />}></Route>
+
+        <Route path='/CHANGEMEBACKTOROOT'
           element={
             <>
               <div className='app-container'>
@@ -134,6 +138,7 @@ function App() {
         <Route path='/GeometryExperiments' element={<GeometryExperiments />}></Route>
         <Route path='/Layer2View' element={<Layer2View />}></Route>
         <Route path='/PageWithImagesNotUsingLayout' element={<PageWithImagesNotUsingLayout />}></Route>
+
       </Routes>
     </Router >
   );
